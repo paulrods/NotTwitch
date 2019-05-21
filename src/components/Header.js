@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import logo from "../../assets/nottwitch_logo.png";
+import { Route, Switch, Link } from "react-router-dom";
 
 const Logo = styled.img`
-  height: 32px;
+  height: 24px;
   width: auto;
 `;
 
@@ -18,7 +19,7 @@ const Wrapper = styled.header`
     rgba(100, 65, 164, 1) 100%
   );
   display: grid;
-  grid: auto / auto auto auto;
+  grid: auto / 50px auto 50px;
   grid-gap: 0px;
   justify-content: space-between;
   align-content: center;
@@ -33,7 +34,9 @@ const Wrapper = styled.header`
 const Header = props => {
   return (
     <Wrapper>
-      <Logo src={logo} />
+      <Link to="/">
+        <Logo src={logo} />
+      </Link>
       {props.children}
     </Wrapper>
   );

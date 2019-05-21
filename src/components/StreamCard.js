@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import _, { truncate } from "lodash";
 
 const Card = styled.div`
   display: grid;
@@ -61,7 +62,7 @@ const StreamType = styled.span`
   text-transform: uppercase;
 `;
 
-const Info = styled.div`
+export const Info = styled.div`
   display: grid;
   grid: 32px 48px / auto;
   grid-gap: 0rem;
@@ -73,22 +74,32 @@ const Info = styled.div`
   overflow: hidden;
 `;
 
-const Status = styled.div`
+export const Status = styled.div`
   max-height: 32px;
   white-space: nowrap;
   font-size: 1.5rem;
   line-height: 2rem;
   padding: 0.5rem;
+
+  margin-left: 0;
+  text-overflow: ellipsis;
+  transform: translateX(0);
+  transition: 4s;
+  transition-timing-function: ease-out;
+  :hover {
+    transform: translateX(calc(360px - 100%));
+    margin-left: -360px;
+  }
 `;
 
-const Badge = styled.div`
+export const Badge = styled.div`
   background: #eee5ff;
   padding: 0 20px 0 0;
   margin-bottom: 1rem;
   border-radius: 42px;
 `;
 
-const Logo = styled.img`
+export const Logo = styled.img`
   background: purple;
   background: url("../../assets/glitch.png");
   background: url(${props => props.src});
@@ -101,13 +112,29 @@ const Logo = styled.img`
   justify-self: start;
 `;
 
-const DisplayName = styled.span`
+export const DisplayName = styled.span`
+  font-size: 1.5rem;
+  line-height: 1.5rem;
+  padding: 0 1rem;
+  font-weight: bold;
+`;
+
+export const GameName = styled.span`
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
   font-size: 1.5rem;
   line-height: 1.5rem;
   padding: 0 1rem;
 `;
 
 const StreamCard = ({ stream }) => {
+  console.log(stream);
+
+  const truncatedGameName = _.truncate(stream.channel.game, {
+    length: 26,
+    separator: " ",
+  });
   return (
     <>
       <Link to={`/stream/${stream.channel.name}`}>
@@ -129,6 +156,7 @@ const StreamCard = ({ stream }) => {
                 alt={stream.channel.display_name}
               />
               <DisplayName>{stream.channel.display_name}</DisplayName>
+              <GameName>{truncatedGameName}</GameName>
             </Badge>
           </Info>
         </Card>

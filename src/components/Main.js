@@ -24,7 +24,9 @@ export default class Main extends Component {
     super(props);
     this.state = {
       streams: [],
-      limit: 10,
+      limit: window.localStorage.getItem("limit")
+        ? parseInt(window.localStorage.getItem("limit"))
+        : 10,
       query: "",
     };
 
@@ -83,8 +85,14 @@ export default class Main extends Component {
     });
   }
 
-  handleLimit(event) {
-    this.setState({ limit: event.target.value });
+  handleLimit(event, { value }) {
+    window.localStorage.setItem("limit", parseInt(value));
+    this.setState({ limit: parseInt(value) }, () => {
+      if (this.state.query && event) {
+        this.getStreams();
+      }
+    });
+    console.log(value);
   }
 
   render() {

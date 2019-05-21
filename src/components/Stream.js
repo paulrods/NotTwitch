@@ -1,6 +1,11 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import { Route, Switch, Link } from "react-router-dom";
+import { getTopStreams } from "../../lib/twitchApi";
+import { getStream } from "../../lib/twitchApi.js";
+import Header from "./Header";
+
+import { Info, Status, Badge, Logo, DisplayName, GameName } from "./StreamCard";
 
 const Wrapper = styled.section`
   display: grid;
@@ -19,6 +24,10 @@ const Wrapper = styled.section`
   }
 `;
 
+const Viewers = styled(GameName)`
+  padding: 1rem 1rem 1rem 3rem;
+`;
+
 export default class Stream extends Component {
   state = {
     displayName: "",
@@ -30,15 +39,21 @@ export default class Stream extends Component {
   };
 
   async componentDidMount() {
+    this.whereIsMyStream();
+    this.interval = setInterval(() => {
+      this.whereIsMyStream();
+    }, 30000);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.interval);
+  }
+
+  async whereIsMyStream() {
     try {
       const { match } = this.props;
-
-      const getStream = await fetch(
-        `https://api.twitch.tv/kraken/streams/${
-          match.params.id
-        }?client_id=hs85p2138sd7ka38xdc4n6ks9fsfwa`
-      );
-      const { stream } = await getStream.json();
+      const res = await getStream(match.params.id);
+      const { stream } = res.data;
       this.setState({
         displayName: stream.channel.display_name,
         name: stream.channel.name,
@@ -54,22 +69,33 @@ export default class Stream extends Component {
 
   render() {
     return (
-      <Wrapper>
-        <iframe
-          src={`https://player.twitch.tv/?channel=${this.state.name}`}
-          height="360px"
-          width="640px"
-          frameBorder="0"
-          scrolling="no"
-          allowFullScreen={true}
-        />
-        <p>{this.state.logo}</p>
-        <p>{this.state.displayName}</p>
-        <p>{this.state.viewers} viewers</p>
-        <p>{this.state.status}</p>
-        <p>{this.state.game}</p>
-        <p>steam!</p>
-      </Wrapper>
+      <>
+        <Header />
+        <Wrapper>
+          <iframe
+            src={`https://player.twitch.tv/?channel=${this.state.name}`}
+            height="360px"
+            width="640px"
+            frameBorder="0"
+            scrolling="no"
+            allowFullScreen={true}
+          />
+
+          <Status>{this.state.status}</Status>
+          <Badge>
+            <Logo src={this.state.logo} alt={this.state.displayName} />
+            <DisplayName>{this.state.displayName}</DisplayName>
+            <GameName>{this.state.game}</GameName>
+          </Badge>
+
+          <Badge>
+            <Viewers>{this.state.viewers} viewers</Viewers>
+          </Badge>
+          <Link to="/">
+            <p>{`< Back`}</p>
+          </Link>
+        </Wrapper>
+      </>
     );
   }
 }
