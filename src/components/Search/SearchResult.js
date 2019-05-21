@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
+import StreamCard from "../Streams/StreamCard";
 
 const Wrapper = styled.section`
   background: rgb(44, 62, 80);
@@ -16,7 +17,6 @@ const Wrapper = styled.section`
   grid-auto-flow: column;
   justify-items: center;
   align-items: center;
-  color: white;
   margin: 0;
   padding: 0 32px;
   height: 360px;
@@ -37,6 +37,16 @@ const Wrapper = styled.section`
 `;
 
 const SearchResult = props => {
-  return <Wrapper searching={props.searching}>{props.children}</Wrapper>;
+  const { searching, results } = props;
+
+  console.log(props.results);
+  return (
+    <Wrapper searching={searching}>
+      {// * There are no results on mount time so i'm comparing results to an empty array. .map will not complain this way
+      (results || []).map(stream => {
+        return <StreamCard stream={stream} key={stream._id} />;
+      })}
+    </Wrapper>
+  );
 };
 export default SearchResult;

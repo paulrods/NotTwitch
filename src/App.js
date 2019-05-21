@@ -1,45 +1,28 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-import StreamCard from "./components/Streams/StreamCard";
-import Header from "./components/Header";
-import TopGames from "./components/Games/TopGames";
-import TopStreams from "./components/Streams/TopStreams";
+
+// import Header from "./components/Header";
+// import TopStreams from "./components/Streams/TopStreams";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 // import GameCard from "./components/GameCard";
 import Stream from "./components/Streams/Stream";
-import axios from "axios";
-import twitch from "../lib/twitchApi";
-import SearchResult from "./components/Search/SearchResult";
-import Search from "./components/Search/Search";
-import twitchAPI, { searchStreams } from "../lib/twitchApi";
-
-const { TWITCH_CLIENT_ID } = process.env;
+// import SearchResult from "./components/Search/SearchResult";
+// import Search from "./components/Search";
+// import { searchStreams } from "../lib/twitchApi";
+import Main from "./components/Main";
 
 export default class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      limit: 10,
-      query: "",
-      results: [],
-    };
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {
+  //     limit: 10,
+  //     query: "",
+  //     results: [],
+  //   };
 
-    this.updateSearch = this.updateSearch.bind(this);
-    this.updateLimit = this.updateLimit.bind(this);
-  }
-
-  updateSearch(_State) {
-    this.setState({
-      query: this.query,
-    });
-    console.log(this.state.query);
-  }
-  updateLimit(_State) {
-    this.setState({
-      limit: this.limit,
-    });
-    console.log(this.state.limit);
-  }
+  //   this.handleSearch = this.handleSearch.bind(this);
+  //   this.handleLimit = this.handleLimit.bind(this);
+  // }
 
   // async getStreams() {
   //   try {
@@ -48,52 +31,45 @@ export default class App extends Component {
   //       this.state.limit
   //     );
   //     this.setState({
-  //       results: searchResults.data,
+  //       results: searchResults.data.streams,
+  //       isLoading: false,
   //     });
   //   } catch (err) {
   //     console.log(err);
   //   }
   // }
 
-  // handleCounter(_State) {
-  //   console.log(_State);
-
-  //   this.setState(
-  //     {
-  //       query: _State.query,
-  //       limit: _State.limit,
-  //     },
-  //     () => {
-  //       if (this.state.query && this.state.query.length > 2) {
-  //         this.getStreams();
-  //       }
+  // handleSearch(event) {
+  //   event.preventDefault();
+  //   this.setState({ query: event.target.value }, () => {
+  //     if (this.state.query && this.state.query.length > 2) {
+  //       this.getStreams();
   //     }
-  //   );
+  //   });
   // }
 
-  // clearResults = () => {
-  //   this.setState({ results: [] });
-  // };
+  // handleLimit(event) {
+  //   this.setState({ limit: event.target.value });
+  // }
 
   render() {
-    const { query, results } = this.state;
+    // const { query, results } = this.state;
+
     return (
       <Router>
-        <Header>
+        {/* <Header>
           <Search
-            updateSearch={this.updateSearch}
-            updateLimit={this.updateLimit}
+            searchValue={this.state.query}
+            handleSearch={this.handleSearch}
+            limitValue={this.state.limit}
+            handleLimit={this.handleLimit}
           />
-        </Header>
+        </Header> */}
 
-        <SearchResult searching={query} />
-        {results.map(stream => {
-          <StreamCard stream={stream} />;
-        })}
-        <SearchResult />
+        {/* <SearchResult searching={query} results={results} /> */}
 
         <Switch>
-          <Route exact path="/" component={TopStreams} />
+          <Route exact path="/" component={Main} />
           <Route exact path="/stream/:id" component={Stream} />
         </Switch>
       </Router>
