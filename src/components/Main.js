@@ -1,9 +1,7 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-import StreamCard from "./Streams/StreamCard";
-import { Route, Switch, Link } from "react-router-dom";
-import twitchAPI, { getTopStreams, searchStreams } from "../../lib/twitchApi";
-import axios from "axios";
+import StreamCard from "./StreamCard";
+import { getTopStreams, searchStreams } from "../../lib/twitchApi";
 import Header from "./Header";
 import Search from "./Search";
 
@@ -90,8 +88,6 @@ export default class Main extends Component {
   }
 
   render() {
-    console.log(this.state.results);
-
     return (
       <>
         <Header>
@@ -102,10 +98,6 @@ export default class Main extends Component {
             handleLimit={this.handleLimit}
           />
         </Header>
-
-        {/* (results || []).map(stream => {
-        return <StreamCard stream={stream} key={stream._id} />;
-      })} */}
 
         <Wrapper>
           {this.state.streams.map(stream => (

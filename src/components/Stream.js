@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-import StreamCard from "./StreamCard";
 import { Route, Switch, Link } from "react-router-dom";
 
 const Wrapper = styled.section`
@@ -40,7 +39,6 @@ export default class Stream extends Component {
         }?client_id=hs85p2138sd7ka38xdc4n6ks9fsfwa`
       );
       const { stream } = await getStream.json();
-      console.log(stream);
       this.setState({
         displayName: stream.channel.display_name,
         name: stream.channel.name,

@@ -1,30 +1,25 @@
-import React, { Component } from "react";
+import React from "react";
 
-export default class Search extends Component {
-  state = {
-    limit: "",
-    query: [],
-  };
-  render() {
-    return (
-      <>
-        <form>
-          <label htmlFor="Search">
-            <input
-              placeholder="find streams..."
-              value={this.props.searchValue}
-              onChange={this.props.handleSearch}
-              bananas={this.props.bananas}
-            />
+const Search = props => {
+  return (
+    <>
+      <form>
+        <label htmlFor="Search">
+          <input
+            placeholder="find streams..."
+            value={props.searchValue}
+            onChange={props.handleSearch}
+            bananas={props.bananas}
+          />
 
-            <input
-              placeholder="results"
-              value={this.props.limitValue}
-              onChange={this.props.handleLimit}
-            />
-          </label>
-        </form>
-      </>
-    );
-  }
-}
+          <input
+            placeholder="results"
+            value={props.limitValue}
+            onChange={props.handleLimit}
+          />
+        </label>
+      </form>
+    </>
+  );
+};
+export default Search;
