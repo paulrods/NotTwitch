@@ -18,9 +18,6 @@ export const Card = styled.div`
     grid: 180px auto / 320px;
     justify-content: center;
   }
-  /* @media (max-width: 480px) {
-    grid: auto / auto;
-  } */
 `;
 
 export const Preview = styled.div`
@@ -139,4 +136,8 @@ export const GameName = styled.span`
   font-size: 1.5rem;
   line-height: 1.5rem;
   padding: 0 1rem;
+
+  @media (max-width: 480px) {
+    display: none;
+  }
 `;
