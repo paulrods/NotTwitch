@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import { Route, Switch, Link } from "react-router-dom";
-import { getTopStreams, getStream } from "../../../lib/twitchApi";
+import { Link } from "react-router-dom";
+import { getStream } from "../../lib/twitchApi";
 import Header from "../Header/Header";
 import {
   Status,
@@ -8,7 +8,9 @@ import {
   Logo,
   DisplayName,
   GameName,
+  Viewers,
 } from "../StreamCard/styles.js";
+import { Wrapper } from "./styles";
 
 export default class Stream extends Component {
   state = {

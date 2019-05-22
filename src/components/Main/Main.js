@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import StreamCard from "../StreamCard/StreamCard";
-import { getTopStreams, searchStreams } from "../../../lib/twitchApi";
+import { getTopStreams, searchStreams } from "../../lib/twitchApi";
 import Header from "../Header/Header";
 import Search from "../Search/Search";
 import { Wrapper } from "./styles";

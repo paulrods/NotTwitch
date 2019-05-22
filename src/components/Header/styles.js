@@ -7,7 +7,7 @@ export const Logo = styled.img`
 
 export const Wrapper = styled.header`
   top: 0;
-  background: rgb(100, 65, 164);
+  background: ${props => props.theme.header_background};
   background: linear-gradient(
     90deg,
     rgba(100, 65, 164, 1) 0%,

@@ -18,7 +18,7 @@ module.exports = {
         test: /\.(png|jpg|gif|svg)$/,
         use: [
           {
-            loader: "file-loader",
+            loader: "url-loader",
             options: {
               outputPath: commonPaths.imagesFolder,
             },

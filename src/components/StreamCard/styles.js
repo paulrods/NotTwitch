@@ -6,12 +6,12 @@ export const Card = styled.div`
   grid-gap: 0;
   align-items: top;
   justify-items: center;
-  background: #ffffff;
+  background: ${props => props.theme.card_background};
   padding: 0;
   margin-top: 0;
   margin-bottom: 2rem;
   border-radius: 4px;
-  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: ${props => props.theme.card_shadow};
   cursor: pointer;
 `;
 
@@ -20,7 +20,7 @@ export const Preview = styled.div`
   grid: auto / 1fr 1fr;
   grid-gap: 1rem;
   justify-content: space-between;
-  background: purple;
+  background: purple; /* falback while the src image loads */
   background: url(${props => props.src});
   background-repeat: no-repeat;
   background-size: cover;
@@ -98,7 +98,7 @@ export const Badge = styled.div`
 
 export const Logo = styled.img`
   background: purple;
-  background: url("../../assets/glitch.png");
+  background: url("../../images/glitch.png");
   background: url(${props => props.src});
   background-repeat: no-repeat;
   background-size: cover;
