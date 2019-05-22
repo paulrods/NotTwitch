@@ -1,3 +1,4 @@
+// import "semantic-ui-css/semantic.min.css";
 import React from "react";
 import ReactDOM from "react-dom";
 import GlobalStyles from "./lib/GlobalStyles";
@@ -10,5 +11,3 @@ ReactDOM.render(
   </React.Fragment>,
   document.getElementById("root")
 );
-
-module.hot.accept();

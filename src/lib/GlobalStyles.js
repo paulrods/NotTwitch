@@ -1,10 +1,6 @@
 import { createGlobalStyle } from "styled-components";
-import styledSanitize from "styled-sanitize";
-import semanticUi from "semantic-ui-css/semantic.min.css";
 
 const GlobalStyles = createGlobalStyle`
-    ${semanticUi},
-    ${styledSanitize}
 
 html {
   font-size: 10px;

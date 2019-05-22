@@ -8,9 +8,8 @@ import {
   Logo,
   DisplayName,
   GameName,
-  Viewers,
 } from "../StreamCard/styles.js";
-import { Wrapper } from "./styles";
+import { Wrapper, Viewers } from "./styles";
 
 export default class Stream extends Component {
   state = {
