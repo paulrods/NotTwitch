@@ -9,11 +9,12 @@ Not Twitch
 <img alt="Netlify Status" src="https://api.netlify.com/api/v1/badges/8c813829-102a-489b-8b0f-ad75e4846536/deploy-status">
 </p>
 
-<p align="center">
-<a href="https://nottwitch.netlify.com" target="_blank">
+<a href="https://nottwitch.netlify.com" target="\_blank" style="display: block;
+margin-left: auto;
+margin-right: auto;
+width: 50%;">
 https://nottwitch.netlify.com
 </a>
-</p>
 
 <p style="text-align: center;">
 <img alt="Image of NotTwitch" src="https://drive.google.com/uc?id=1xV4swTOl8-_tmBBa0ayA06MEMlBgYf1M" height="200px">
