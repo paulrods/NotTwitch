@@ -14,8 +14,9 @@ export const Wrapper = styled.div`
   }
 
   @media (max-width: 480px) {
-    grid-template-rows: repeat(auto-fill, minmax(180px, 320px));
-    padding: 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(auto, 320px)) !important;
+    justify-content: center;
+    padding: 1rem 0;
     grid-gap: 0rem;
   }
 `;
