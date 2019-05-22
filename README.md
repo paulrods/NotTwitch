@@ -5,7 +5,17 @@ Not Twitch
 <small>This is totally not twitch</small>
 </p>
 
-<p style="text-align: center; font-size">
+<p style="text-align: center;">
+<img alt="Netlify Status" src="https://api.netlify.com/api/v1/badges/8c813829-102a-489b-8b0f-ad75e4846536/deploy-status">
+</p>
+
+<p align="center">
+<a href="https://nottwitch.netlify.com" target="_blank">
+https://nottwitch.netlify.com
+</a>
+</p>
+
+<p style="text-align: center;">
 <img alt="Image of NotTwitch" src="https://drive.google.com/uc?id=1xV4swTOl8-_tmBBa0ayA06MEMlBgYf1M" height="200px">
 </p>
 <p align="center">
