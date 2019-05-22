@@ -12,4 +12,10 @@ export const Wrapper = styled.div`
     text-decoration: none;
     color: inherit;
   }
+
+  @media (max-width: 480px) {
+    grid-template-rows: repeat(auto-fill, minmax(180px, 320px));
+    padding: 1rem;
+    grid-gap: 0rem;
+  }
 `;

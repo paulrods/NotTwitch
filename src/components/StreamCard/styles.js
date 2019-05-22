@@ -13,6 +13,14 @@ export const Card = styled.div`
   border-radius: 4px;
   box-shadow: ${props => props.theme.card_shadow};
   cursor: pointer;
+
+  @media (max-width: 660px) {
+    grid: 180px auto / 320px;
+    justify-content: center;
+  }
+  /* @media (max-width: 480px) {
+    grid: auto / auto;
+  } */
 `;
 
 export const Preview = styled.div`
@@ -28,6 +36,10 @@ export const Preview = styled.div`
   border-radius: 4px 4px 0 0;
   width: 100%;
   height: auto;
+
+  @media (max-width: 480px) {
+    grid: auto / auto;
+  }
 
   div {
     padding: 4px 8px;
@@ -57,6 +69,10 @@ export const StreamType = styled.span`
   border-radius: 4px;
   padding: 4px;
   text-transform: uppercase;
+
+  @media (max-width: 480px) {
+    display: none;
+  }
 `;
 
 export const Info = styled.div`

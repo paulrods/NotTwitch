@@ -3,6 +3,10 @@ import styled from "styled-components";
 export const Logo = styled.img`
   height: 24px;
   width: auto;
+
+  @media (max-width: 480px) {
+    display: none;
+  }
 `;
 
 export const Wrapper = styled.header`
@@ -26,4 +30,12 @@ export const Wrapper = styled.header`
   max-height: 52px;
   align-items: center;
   box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.06);
+
+  @media (max-width: 660px) {
+    grid: auto / 50px auto;
+  }
+  @media (max-width: 480px) {
+    grid: auto / auto;
+    justify-content: center;
+  }
 `;
