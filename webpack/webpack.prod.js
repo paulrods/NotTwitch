@@ -2,6 +2,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CleanWebpackPlugin = require("clean-webpack-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
+const Dotenv = require("dotenv-webpack");
 
 const commonPaths = require("./paths");
 
@@ -66,6 +67,15 @@ module.exports = {
       filename: `${commonPaths.cssFolder}/[name].css`,
       chunkFilename: `${commonPaths.cssFolder}/[name].css`,
     }),
+    new Dotenv({
+      path: commonPaths.envPath, // load this now instead of the ones in '.env'
+      silent: true, // hide any errors
+      systemvars: true,
+    }),
   ],
   devtool: "source-map",
+  // * This is down here cuz of dotenv
+  node: {
+    fs: "empty",
+  },
 };
