@@ -58,7 +58,7 @@ This project is a code assignment proposed by a local company ( 👋 Hi there! )
 TWITCH_CLIENT_ID=yourTwitchClientId
 ```
 
-5. Run the project in development mode with `npm run start:dev` or in production mode with `npm run start`
+5. Run the project in development mode with `npm run start` or in production mode with `npm run build`
 6. ???
 7. Profit!
 
