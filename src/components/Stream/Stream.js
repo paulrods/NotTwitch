@@ -1,32 +1,14 @@
 import React, { Component } from "react";
-import styled from "styled-components";
 import { Route, Switch, Link } from "react-router-dom";
-import { getTopStreams } from "../../lib/twitchApi";
-import { getStream } from "../../lib/twitchApi.js";
-import Header from "./Header";
-
-import { Info, Status, Badge, Logo, DisplayName, GameName } from "./StreamCard";
-
-const Wrapper = styled.section`
-  display: grid;
-  grid: auto auto / auto;
-  grid-gap: 1rem;
-
-  justify-items: center;
-  align-items: top;
-
-  margin: 0;
-  padding: 2rem 32px;
-
-  a {
-    text-decoration: none;
-    color: inherit;
-  }
-`;
-
-const Viewers = styled(GameName)`
-  padding: 1rem 1rem 1rem 3rem;
-`;
+import { getTopStreams, getStream } from "../../../lib/twitchApi";
+import Header from "../Header/Header";
+import {
+  Status,
+  Badge,
+  Logo,
+  DisplayName,
+  GameName,
+} from "../StreamCard/styles.js";
 
 export default class Stream extends Component {
   state = {

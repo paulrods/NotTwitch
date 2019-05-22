@@ -1,8 +1,8 @@
 import React from "react";
-import styled from "styled-components";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Stream from "./components/Stream";
-import Main from "./components/Main";
+import Stream from "./components/Stream/Stream";
+import Main from "./components/Main/Main";
+// import { hot } from "react-hot-loader/root";
 
 const App = () => {
   return (
@@ -14,4 +14,5 @@ const App = () => {
     </Router>
   );
 };
+// export default hot(App);
 export default App;

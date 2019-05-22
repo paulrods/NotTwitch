@@ -1,13 +1,6 @@
 import React from "react";
-import styled from "styled-components";
-import { Input, Dropdown, Menu } from "semantic-ui-react";
-
-const StyledMenu = styled(Menu)`
-  font-size: 1.5rem !important;
-  > div {
-    font-size: 1.5rem !important;
-  }
-`;
+import { Input, Dropdown } from "semantic-ui-react";
+import { StyledMenu } from "./styles";
 
 const searchLimits = [
   { key: 1, text: "10", value: 10 },
@@ -38,18 +31,6 @@ const Search = props => {
           basic
         />
       </StyledMenu>
-
-      {/* <input
-            placeholder="results"
-            value={props.limitValue}
-            onChange={props.handleLimit}
-          /> */}
-
-      {/* <Dropdown
-            options={searchLimits}
-            defaultValue={props.limitValue}
-            onChange={props.handleLimit}
-          /> */}
     </>
   );
 };

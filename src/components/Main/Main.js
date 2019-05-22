@@ -1,23 +1,9 @@
 import React, { Component } from "react";
-import styled from "styled-components";
-import StreamCard from "./StreamCard";
-import { getTopStreams, searchStreams } from "../../lib/twitchApi";
-import Header from "./Header";
-import Search from "./Search";
-
-const Wrapper = styled.section`
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-  grid-gap: 1rem;
-  justify-items: center;
-  align-items: top;
-  margin: 0;
-  padding: 2rem 32px;
-  a {
-    text-decoration: none;
-    color: inherit;
-  }
-`;
+import StreamCard from "../StreamCard/StreamCard";
+import { getTopStreams, searchStreams } from "../../../lib/twitchApi";
+import Header from "../Header/Header";
+import Search from "../Search/Search";
+import { Wrapper } from "./styles";
 
 export default class Main extends Component {
   constructor(props) {
@@ -92,7 +78,6 @@ export default class Main extends Component {
         this.getStreams();
       }
     });
-    console.log(value);
   }
 
   render() {

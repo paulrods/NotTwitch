@@ -1,9 +1,6 @@
-import React from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
-import _, { truncate } from "lodash";
 
-const Card = styled.div`
+export const Card = styled.div`
   display: grid;
   grid: 225px auto / 400px;
   grid-gap: 0;
@@ -18,7 +15,7 @@ const Card = styled.div`
   cursor: pointer;
 `;
 
-const Preview = styled.div`
+export const Preview = styled.div`
   display: grid;
   grid: auto / 1fr 1fr;
   grid-gap: 1rem;
@@ -47,14 +44,14 @@ const Preview = styled.div`
   }
 `;
 
-const Viewers = styled.span`
+export const Viewers = styled.span`
   justify-self: start;
   background-color: rgba(0, 0, 0, 0.3);
   border-radius: 4px;
   padding: 4px;
 `;
 
-const StreamType = styled.span`
+export const StreamType = styled.span`
   justify-self: end;
   background-color: rgba(255, 0, 0, 0.7);
   border-radius: 4px;
@@ -127,42 +124,3 @@ export const GameName = styled.span`
   line-height: 1.5rem;
   padding: 0 1rem;
 `;
-
-const StreamCard = ({ stream }) => {
-  console.log(stream);
-
-  const truncatedGameName = _.truncate(stream.channel.game, {
-    length: 26,
-    separator: " ",
-  });
-  return (
-    <>
-      <Link to={`/stream/${stream.channel.name}`}>
-        <Card>
-          <Preview src={stream.preview.large}>
-            <div>
-              <Viewers>Viewers: {stream.viewers}</Viewers>
-            </div>
-            <div>
-              <StreamType>{stream.stream_type}</StreamType>
-            </div>
-          </Preview>
-
-          <Info>
-            <Status>{stream.channel.status}</Status>
-            <Badge>
-              <Logo
-                src={stream.channel.logo}
-                alt={stream.channel.display_name}
-              />
-              <DisplayName>{stream.channel.display_name}</DisplayName>
-              <GameName>{truncatedGameName}</GameName>
-            </Badge>
-          </Info>
-        </Card>
-      </Link>
-    </>
-  );
-};
-
-export default StreamCard;
